@@ -4,6 +4,7 @@
   display: flex;
   flex-wrap: wrap;
   border-bottom: 1px solid purple;
+  padding: 10px;
 }
 
 .timer-div {
@@ -19,7 +20,7 @@
   text-align: center;
 }
 
-.start-button {
+.start-btn {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -31,4 +32,48 @@
   font-weight: bold;
   font-size: 20px;
   border: none;
+}
+
+.high-scores {
+  position: relative;
+  margin-top: 25vh;
+  margin-left: 38vw;
+  width: 25vw;
+  height: 400px;
+  text-align: left;
+}
+
+.high-scores h1 {
+}
+
+.highscores-input {
+  border: none;
+  background-color: plum;
+  padding: 5px;
+  width: 25vw;
+  border-radius: 8px;
+}
+
+.go-back-btn {
+  margin-right: 10px;
+  border-radius: 8px;
+  background-color: rgb(100, 6, 232);
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border: none;
+  margin-top: 40px;
+  padding: 5px;
+}
+
+.clear-highscores-btn {
+  margin-left: 10px;
+  border-radius: 8px;
+  background-color: rgb(100, 6, 232);
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border: none;
+  margin-top: 40px;
+  padding: 5px;
 }
