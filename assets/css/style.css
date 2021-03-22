@@ -23,7 +23,7 @@
 .start-btn {
   padding: 10px;
   border-radius: 8px;
-  background-color: rgb(100, 6, 232);
+  background-color: purple;
   color: white;
   font-weight: bold;
   font-size: 20px;
@@ -31,48 +31,30 @@
   margin-top: 10px;
 }
 
-.high-scores {
+.questions-div {
   position: relative;
   margin-top: 25vh;
-  margin-left: 38vw;
+  margin-left: 40vw;
   width: 25vw;
   height: 400px;
   text-align: left;
 }
 
-.high-scores h1 {
+.quiz-btn {
+  background-color: purple;
+  color: white;
+  padding: 10px 24px;
+  cursor: pointer;
+  width: 50%;
+  display: block;
+  border: none;
+  border-radius: 5px;
+  text-align: left;
+  margin: 5px;
 }
 
-.highscores-div {
-  border: none;
+.quiz-btn:hover {
   background-color: plum;
-  padding: 5px;
-  width: 25vw;
-  border-radius: 8px;
-}
-
-.go-back-btn {
-  margin-right: 10px;
-  border-radius: 8px;
-  background-color: rgb(100, 6, 232);
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  border: none;
-  margin-top: 40px;
-  padding: 5px;
-}
-
-.clear-highscores-btn {
-  margin-left: 10px;
-  border-radius: 8px;
-  background-color: rgb(100, 6, 232);
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  border: none;
-  margin-top: 40px;
-  padding: 5px;
 }
 
 .form-div {
@@ -88,15 +70,56 @@
   text-align: left;
 }
 .form-div form {
-  padding: 5px;
+  padding: 10px;
   font-size: 20px;
 }
 
 .submit-btn {
-  background-color: rgb(100, 6, 232);
+  background-color: purple;
   color: white;
   font-weight: bold;
   font-size: 15px;
   position: absolute;
   margin-left: 10px;
+}
+
+.high-scores {
+  position: relative;
+  margin-top: 25vh;
+  margin-left: 38vw;
+  width: 25vw;
+  height: 400px;
+  text-align: left;
+}
+
+.highscores-div {
+  border: none;
+  background-color: plum;
+  padding: 5px;
+  width: 25vw;
+  border-radius: 8px;
+}
+
+.go-back-btn {
+  margin-right: 10px;
+  border-radius: 8px;
+  background-color: purple;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border: none;
+  margin-top: 40px;
+  padding: 5px;
+}
+
+.clear-highscores-btn {
+  margin-left: 10px;
+  border-radius: 8px;
+  background-color: purple;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border: none;
+  margin-top: 40px;
+  padding: 5px;
 }
