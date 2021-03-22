@@ -30,6 +30,9 @@
   border: none;
   margin-top: 10px;
 }
+.start-btn:hover {
+  background-color: plum;
+}
 
 .questions-container {
   position: relative;
@@ -82,6 +85,9 @@
   position: absolute;
   margin-left: 10px;
 }
+.submit-btn:hover {
+  background-color: plum;
+}
 
 .high-scores {
   position: relative;
@@ -112,6 +118,9 @@
   padding: 5px;
 }
 
+.go-back-btn:hover {
+  background-color: plum;
+}
 .clear-highscores-btn {
   margin-left: 10px;
   border-radius: 8px;
@@ -122,4 +131,7 @@
   border: none;
   margin-top: 40px;
   padding: 5px;
+}
+.clear-highscores-btn:hover {
+  background-color: plum;
 }
