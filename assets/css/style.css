@@ -31,7 +31,7 @@
   margin-top: 10px;
 }
 
-.questions-div {
+.questions-container {
   position: relative;
   margin-top: 25vh;
   margin-left: 40vw;
@@ -57,7 +57,7 @@
   background-color: plum;
 }
 
-.form-div {
+.form-container {
   position: relative;
   margin-top: 25vh;
   margin-left: 40vw;
@@ -66,10 +66,10 @@
   text-align: left;
 }
 
-.form-div h1 {
+.form-container h1 {
   text-align: left;
 }
-.form-div form {
+.form-container form {
   padding: 10px;
   font-size: 20px;
 }
@@ -92,7 +92,7 @@
   text-align: left;
 }
 
-.highscores-div {
+.highscores-container {
   border: none;
   background-color: plum;
   padding: 5px;
