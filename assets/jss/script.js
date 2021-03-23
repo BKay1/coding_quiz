@@ -1,3 +1,5 @@
+//Quiz Questions
+
 const quizQuestions = [
   {
     question: "Commonly used data types DO NOT include:",
@@ -45,19 +47,56 @@ const quizQuestions = [
   },
 ];
 
+//Variables to be used
 const startButtonElement = document.getElementById("start-btn");
-const timerSpanElement = document.getElementById("timer");
 const bodyElement = document.body;
+const quizIntroElement = document.getElementById("quiz-intro");
+const timerElement = document.getElementById("timer");
 
+//Construct the Quiz Container
 const constructQuestionsContainer = () => {
   const questionsContainerDiv = document.createElement("div");
   questionsContainerDiv.setAttribute("class", "questions-container");
+  bodyElement.appendChild(questionsContainerDiv);
 
-  const quizBtnDiv = document.createElement("div");
+  const h2 = document.createElement("h2");
+  h2.textContent = "Commonly used data types DO NOT include:";
+  questionsContainerDiv.appendChild(h2);
+
+  const quizBtnA = document.createElement("buttonA");
+  quizBtnA.setAttribute("class", "quiz-btn");
+  questionsContainerDiv.appendChild(quizBtnA);
+
+  const quizBtnB = document.createElement("buttonB");
+  quizBtnB.setAttribute("class", "quiz-btn");
+  questionsContainerDiv.appendChild(quizBtnB);
+
+  const quizBtnC = document.createElement("buttonC");
+  quizBtnC.setAttribute("class", "quiz-btn");
+  questionsContainerDiv.appendChild(quizBtnC);
+
+  const quizBtnD = document.createElement("buttonD");
+  quizBtnD.setAttribute("class", "quiz-btn");
+  questionsContainerDiv.appendChild(quizBtnD);
+
+  //need to add correct incorrect box
+
+  return questionsContainerDiv;
+};
+
+//Timer
+
+//Removes first page upon start of quiz
+const removeStartQuiz = () => {
+  quizIntroElement.remove();
+  return;
 };
 
 const startGame = () => {
+  const remove = removeStartQuiz();
   const questionsDivElement = constructQuestionsContainer();
+  document.body.appendChild(questionsDivElement);
 };
 
+//Event Listeners
 startButtonElement.addEventListener("click", startGame);
