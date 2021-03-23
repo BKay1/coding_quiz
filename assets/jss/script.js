@@ -52,9 +52,10 @@ const startButtonElement = document.getElementById("start-btn");
 const bodyElement = document.body;
 const quizIntroElement = document.getElementById("quiz-intro");
 const timerElement = document.getElementById("timer");
+let timerValue = 10;
 
 //Construct the Quiz Container
-const constructQuestionsContainer = () => {
+const QuestionsContainer = () => {
   const questionsContainerDiv = document.createElement("div");
   questionsContainerDiv.setAttribute("class", "questions-container");
   bodyElement.appendChild(questionsContainerDiv);
@@ -86,6 +87,29 @@ const constructQuestionsContainer = () => {
 
 //Timer
 
+const startTimer = () => {
+  const timerTick = () => {
+    timerElement.textContent = timerValue;
+    timerValue -= 1;
+
+    if (timerValue === 0) {
+      clearInterval(timer);
+
+      //construct nameFormdiv
+      const nameFormElement = nameForm();
+
+      //remove questionsContainers
+      const questionsContainer = document.getElementById("QuestionsContainer");
+      bodyElement.removeChild(questionsContainer);
+
+      //append nameFormdiv to body
+      bodyElement.appendChild(nameForm);
+    }
+  };
+
+  const timer = setInterval(timerTick, 1000);
+};
+
 //Removes first page upon start of quiz
 const removeStartQuiz = () => {
   quizIntroElement.remove();
@@ -94,9 +118,10 @@ const removeStartQuiz = () => {
 
 const startGame = () => {
   const remove = removeStartQuiz();
-  const questionsDivElement = constructQuestionsContainer();
+  const questionsDivElement = QuestionsContainer();
   document.body.appendChild(questionsDivElement);
 };
 
 //Event Listeners
 startButtonElement.addEventListener("click", startGame);
+startButtonElement.addEventListener("click", startTimer);
