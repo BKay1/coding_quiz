@@ -98,21 +98,21 @@ const verifyChoice = (event) => {
 
 //Construct the Quiz Container
 const createQuestion = (question) => {
-  const questionsContainerDiv = document.createElement("div");
-  questionsContainerDiv.setAttribute("id", "questions-container");
-  questionsContainerDiv.setAttribute("class", "questions-container");
-  questionsContainerDiv.setAttribute("data-answer", question.correctAnswer);
+  const questionsContainer = document.createElement("div");
+  questionsContainer.setAttribute("id", "questions-container");
+  questionsContainer.setAttribute("class", "questions-container");
+  questionsContainer.setAttribute("data-answer", question.correctAnswer);
 
   const h2 = document.createElement("h2");
   h2.textContent = question.title;
 
   const choices = createChoices(question.choices);
 
-  questionsContainerDiv.append(h2, choices);
+  questionsContainer.append(h2, choices);
 
-  questionsContainerDiv.addEventListener("click", verifyChoice);
+  questionsContainer.addEventListener("click", verifyChoice);
 
-  return questionsContainerDiv;
+  return questionsContainer;
 };
 
 const renderQuestion = () => {
@@ -121,43 +121,11 @@ const renderQuestion = () => {
     const questionsContainer = createQuestion(questions[index]);
 
     // append question container to the DOM
-    quizContainer.appendChild(questionsContainerDiv);
+    quizContainer.appendChild(questionsContainer);
   } else {
     alert("DONE");
   }
 };
-
-// const QuestionsContainer = () => {
-//   const questionsContainerDiv = document.createElement("div");
-//   questionsContainerDiv.setAttribute("class", "questions-container");
-//   bodyElement.appendChild(questionsContainerDiv);
-
-//   const h2 = document.createElement("h2");
-//   h2.textContent = "Commonly used data types DO NOT include:";
-//   questionsContainerDiv.appendChild(h2);
-
-//   //Add id's to each button and text (option A, 1 etc)
-
-//   const quizBtn1 = document.createElement("button");
-//   quizBtn1.setAttribute("class", "quiz-btn");
-//   questionsContainerDiv.appendChild(quizBtn1);
-
-//   const quizBtn2 = document.createElement("button");
-//   quizBtn2.setAttribute("class", "quiz-btn");
-//   questionsContainerDiv.appendChild(quizBtn2);
-
-//   const quizBtn3 = document.createElement("button");
-//   quizBtn3.setAttribute("class", "quiz-btn");
-//   questionsContainerDiv.appendChild(quizBtn3);
-
-//   const quizBtn4 = document.createElement("button");
-//   quizBtn4.setAttribute("class", "quiz-btn");
-//   questionsContainerDiv.appendChild(quizBtn4);
-
-//need to add correct incorrect box
-
-//   return questionsContainerDiv;
-// };
 
 //Timer
 
