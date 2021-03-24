@@ -4,7 +4,7 @@ const questions = [
   {
     question: "Commonly used data types DO NOT include:",
     choices: ["1. Strings", "2. Boolean", "3. Alerts", "4. Numbers"],
-    answer: "3. Alerts",
+    correctAnswer: "3. Alerts",
   },
 
   {
@@ -15,7 +15,7 @@ const questions = [
       "3. Parenthesis",
       "4. Square Brackets",
     ],
-    answer: "3. Parenthesis",
+    correctAnswer: "3. Parenthesis",
   },
 
   {
@@ -26,7 +26,7 @@ const questions = [
       "3. Booleans",
       "4. All of the above",
     ],
-    answer: "4. All of the above",
+    correctAnswer: "4. All of the above",
   },
 
   {
@@ -38,12 +38,12 @@ const questions = [
       "3. For Loops",
       "4. Console Log",
     ],
-    answer: "4. Console Log",
+    correctAnswer: "4. Console Log",
   },
   {
     question: "The first index of an array is ____.",
     choices: ["a. 0", "b. 1", "c. 10", "d. any"],
-    answer: "a. 0",
+    correctAnswer: "a. 0",
   },
 ];
 
@@ -54,8 +54,7 @@ const quizIntroElement = document.getElementById("quiz-intro");
 const timerElement = document.getElementById("timer");
 const questionsContainerDiv = document.createElement("div");
 const quizContainer = document.getElementById("quiz-container");
-let timerValue = 10;
-const formContainerElement = document.getElementById("form-container");
+let timerValue = 60;
 
 let index = 0;
 
@@ -66,6 +65,7 @@ const createChoices = (choices) => {
     const div = document.createElement("div");
     const button = document.createElement("button");
     button.setAttribute("data-answer", choice);
+    button.setAttribute("class", "quiz-btn");
     button.textContent = choice;
 
     div.appendChild(button);
@@ -88,10 +88,11 @@ const verifyChoice = (event) => {
 
     if (answer === correctAnswer) {
       index += 1;
-      quizContainer.removeChild(document.getElementById("question"));
+      console.log(index);
+      quizContainer.removeChild(document.getElementById("questions-container"));
       renderQuestion();
     } else {
-      alert("BOO");
+      alert("mm");
     }
   }
 };
@@ -104,11 +105,13 @@ const createQuestion = (question) => {
   questionsContainer.setAttribute("data-answer", question.correctAnswer);
 
   const h2 = document.createElement("h2");
-  h2.textContent = question.title;
+  h2.textContent = question.question;
 
   const choices = createChoices(question.choices);
 
-  questionsContainer.append(h2, choices);
+  questionsContainer.appendChild(h2);
+  questionsContainer.appendChild(choices);
+  quizContainer.append(questionsContainer);
 
   questionsContainer.addEventListener("click", verifyChoice);
 
