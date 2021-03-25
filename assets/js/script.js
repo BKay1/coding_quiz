@@ -51,11 +51,11 @@ const questions = [
 const startButtonElement = document.getElementById("start-btn");
 const bodyElement = document.body;
 const quizIntroElement = document.getElementById("quiz-intro");
-const timerElement = document.getElementById("timer");
-const timeRemaining = document.querySelector("#seconds-remaining");
+const timerElement = document.getElementById("seconds-remaining");
+const secondsRemaining = document.querySelector("#seconds-remaining");
 const questionsContainerDiv = document.createElement("div");
 const quizContainer = document.getElementById("quiz-container");
-let timerValue = 10;
+let timerValue = 60;
 
 let index = 0;
 
@@ -133,13 +133,14 @@ const renderQuestion = () => {
 //construct form container
 const formContainerDiv = () => {
   const formContainer = document.createElement("div");
-  formContainer.setAttribute("class", "form-container");
 
   const h1 = document.createElement("h1");
   h1.textContent = "All Done!";
+  h1.setAttribute("class", "form-container h1");
 
   const finalScoreDiv = document.createElement("div");
   finalScoreDiv.textContent = "Your final score is " + secondsRemaining + ".";
+  finalScoreDiv.setAttribute("class", "form-container");
 
   const enterInitialsDiv = document.createElement("label");
   enterInitialsDiv.textContent = "Enter your Initials: ";
@@ -155,7 +156,6 @@ const formContainerDiv = () => {
   formContainer.appendChild(enterInitialsDiv);
   formContainer.appendChild(inputInitialsDiv);
   formContainer.appendChild(submitButton);
-  formContainer.appendChild(h1);
   bodyElement.appendChild(formContainer);
 
   submitButton.addEventListener("click", function (event) {
@@ -163,7 +163,7 @@ const formContainerDiv = () => {
 
     if (inputInitialsDiv.value === "") {
       alert("Please enter your initials!");
-      return null;
+      return;
     }
 
     saveScore(inputInitialsDiv.value, secondsRemaining);
@@ -175,18 +175,18 @@ const formContainerDiv = () => {
 
 const startTimer = () => {
   const timerTick = () => {
-    timer.textContent = timerValue;
+    timerElement.textContent = timerValue;
     timerValue -= 1;
 
     if (timerValue < 0) {
       clearInterval(timer);
 
       // //construct formContainer
-      const formContainer = formContainer();
+      const formContainer = formContainerDiv();
 
       //remove questionsContainer
-      const questionsContainer = document.getElementById("questions-container");
-      bodyElement.removeChild(questionsContainer);
+      // const questionsContainer = document.getElementById("questions-container");
+      // bodyElement.removeChild(questionsContainer);
 
       //append formContainer to body
       bodyElement.appendChild(formContainer);
@@ -196,13 +196,17 @@ const startTimer = () => {
   const timer = setInterval(timerTick, 1000);
 };
 
+//submit High scores to local storage
+
 // //Removes start quiz
 const startQuiz = () => {
   quizIntroElement.remove();
 
   renderQuestion();
+
+  startTimer();
 };
 
 //Event Listeners
 startButtonElement.addEventListener("click", startQuiz);
-startButtonElement.addEventListener("click", startTimer);
+// startButtonElement.addEventListener("click", startTimer);
