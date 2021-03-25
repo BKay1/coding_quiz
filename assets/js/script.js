@@ -93,7 +93,7 @@ const verifyChoice = (event) => {
       quizContainer.removeChild(document.getElementById("questions-container"));
       renderQuestion();
     } else {
-      alert("mm");
+      alert("Incorrect - Try Again");
     }
   }
 };
@@ -127,7 +127,6 @@ const renderQuestion = () => {
     // append question container to the DOM
     quizContainer.appendChild(questionsContainer);
   } else {
-    return;
   }
 };
 
