@@ -52,9 +52,10 @@ const startButtonElement = document.getElementById("start-btn");
 const bodyElement = document.body;
 const quizIntroElement = document.getElementById("quiz-intro");
 const timerElement = document.getElementById("timer");
+const timeRemaining = document.querySelector("#seconds-remaining");
 const questionsContainerDiv = document.createElement("div");
 const quizContainer = document.getElementById("quiz-container");
-let timerValue = 60;
+let timerValue = 10;
 
 let index = 0;
 
@@ -88,7 +89,7 @@ const verifyChoice = (event) => {
 
     if (answer === correctAnswer) {
       index += 1;
-      console.log(index);
+
       quizContainer.removeChild(document.getElementById("questions-container"));
       renderQuestion();
     } else {
@@ -126,25 +127,66 @@ const renderQuestion = () => {
     // append question container to the DOM
     quizContainer.appendChild(questionsContainer);
   } else {
-    alert("DONE");
+    return;
   }
+};
+
+//construct form container
+const formContainerDiv = () => {
+  const formContainer = document.createElement("div");
+  formContainer.setAttribute("class", "form-container");
+
+  const h1 = document.createElement("h1");
+  h1.textContent = "All Done!";
+
+  const finalScoreDiv = document.createElement("div");
+  finalScoreDiv.textContent = "Your final score is " + secondsRemaining + ".";
+
+  const enterInitialsDiv = document.createElement("label");
+  enterInitialsDiv.textContent = "Enter your Initials: ";
+
+  const inputInitialsDiv = document.createElement("input");
+  inputInitialsDiv.setAttribute("type", "text");
+
+  const submitButton = document.createElement("button");
+  submitButton.setAttribute("class", "submit-btn");
+
+  formContainer.appendChild(h1);
+  formContainer.appendChild(finalScoreDiv);
+  formContainer.appendChild(enterInitialsDiv);
+  formContainer.appendChild(inputInitialsDiv);
+  formContainer.appendChild(submitButton);
+  formContainer.appendChild(h1);
+  bodyElement.appendChild(formContainer);
+
+  submitButton.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    if (inputInitialsDiv.value === "") {
+      alert("Please enter your initials!");
+      return null;
+    }
+
+    saveScore(inputInitialsDiv.value, secondsRemaining);
+    location = "highscores.html";
+  });
 };
 
 //Timer
 
 const startTimer = () => {
   const timerTick = () => {
-    timerElement.textContent = timerValue;
+    timer.textContent = timerValue;
     timerValue -= 1;
 
     if (timerValue < 0) {
       clearInterval(timer);
 
-      //construct formContainer
-      const formContainerElement = formContainer();
+      // //construct formContainer
+      const formContainer = formContainer();
 
-      //remove questionsContainers
-      const questionsContainer = document.getElementById("QuestionsContainer");
+      //remove questionsContainer
+      const questionsContainer = document.getElementById("questions-container");
       bodyElement.removeChild(questionsContainer);
 
       //append formContainer to body

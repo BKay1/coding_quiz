@@ -35,6 +35,7 @@
 }
 
 .questions-container {
+  margin-top: 25vh;
   margin-left: 40vw;
   width: 25vw;
   height: 200px;
@@ -102,6 +103,8 @@
   padding: 5px;
   width: 25vw;
   border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .go-back-btn {
