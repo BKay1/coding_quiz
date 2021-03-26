@@ -136,7 +136,6 @@ const formContainerDiv = () => {
 
   const h1 = document.createElement("h1");
   h1.textContent = "All Done!";
-  // h1.setAttribute("class", "form-container");
 
   const finalScoreDiv = document.createElement("div");
   finalScoreDiv.textContent = "Your final score is " + secondsRemaining + ".";
@@ -149,6 +148,7 @@ const formContainerDiv = () => {
 
   const submitButton = document.createElement("button");
   submitButton.setAttribute("class", "submit-btn");
+  submitButton.textContent = "Submit";
 
   formContainer.appendChild(h1);
   formContainer.appendChild(finalScoreDiv);
@@ -208,4 +208,3 @@ const startQuiz = () => {
 
 //Event Listeners
 startButtonElement.addEventListener("click", startQuiz);
-// startButtonElement.addEventListener("click", startTimer);

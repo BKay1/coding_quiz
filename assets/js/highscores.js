@@ -1,5 +1,4 @@
 const goBackBtn = document.getElementById("go-back-btn");
-goBackBtn.setAttribute;
 const clearBtn = document.getElementById("clear-highscores-btn");
 
 const goBack = () => {

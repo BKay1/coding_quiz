@@ -77,6 +77,8 @@
 }
 
 .submit-btn {
+  height: 3vh;
+  width: 12vh;
   background-color: purple;
   color: white;
   font-weight: bold;
