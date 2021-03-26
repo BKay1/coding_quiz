@@ -51,11 +51,11 @@ const questions = [
 const startButtonElement = document.getElementById("start-btn");
 const bodyElement = document.body;
 const quizIntroElement = document.getElementById("quiz-intro");
-const timerElement = document.getElementById("seconds-remaining");
+const timerElement = document.getElementById("timer");
 const secondsRemaining = document.querySelector("#seconds-remaining");
 const questionsContainerDiv = document.createElement("div");
 const quizContainer = document.getElementById("quiz-container");
-let timerValue = 60;
+let timerValue = 5;
 
 let index = 0;
 
@@ -136,11 +136,10 @@ const formContainerDiv = () => {
 
   const h1 = document.createElement("h1");
   h1.textContent = "All Done!";
-  h1.setAttribute("class", "form-container h1");
+  // h1.setAttribute("class", "form-container");
 
   const finalScoreDiv = document.createElement("div");
   finalScoreDiv.textContent = "Your final score is " + secondsRemaining + ".";
-  finalScoreDiv.setAttribute("class", "form-container");
 
   const enterInitialsDiv = document.createElement("label");
   enterInitialsDiv.textContent = "Enter your Initials: ";
@@ -167,7 +166,7 @@ const formContainerDiv = () => {
     }
 
     saveScore(inputInitialsDiv.value, secondsRemaining);
-    location = "highscores.html";
+    window.location = "highscores.html";
   });
 };
 
