@@ -160,7 +160,28 @@ const formContainerDiv = () => {
 
   // submit to highscores
 
-  submitButton.addEventListener("click"),
+  //Create saveScore function
+
+  const saveScore = (initials, score) => {
+    //Getting scores from local storage and parsing.
+    const storedHighScores = localStorage.getItem("highScores");
+    const parsedHighScores = JSON.parse(storedHighScores);
+    //create new highScoresArray and spread in existing highScores.
+    console.log(storedHighScores);
+    const highScoresArray = [];
+    if (parsedHighScores) {
+      highScoresArray.push(...parsedHighScores);
+    }
+    // push new high score
+    highScoresArray.push({ initials: initials, score: score });
+    //stringifying new high scores
+    const newHighScores = JSON.stringify(highScoresArray);
+    //store new high scores array.
+    localStorage.setItem("highScores", newHighScores);
+  };
+
+  submitButton.addEventListener(
+    "click",
     //submit High scores to local storage
     function (event) {
       event.preventDefault();
@@ -170,9 +191,10 @@ const formContainerDiv = () => {
         return;
       }
 
-      saveScore(inputInitialsDiv.value, secondsRemaining);
+      saveScore(inputInitialsDiv.value, timerValue);
       window.location = "highscores.html";
-    };
+    }
+  );
 };
 
 //Timer
@@ -182,7 +204,9 @@ const startTimer = () => {
     timerElement.textContent = timerValue;
     timerValue -= 1;
 
-    if (timerValue < 0) {
+    if (timerValue < 0 || index === questions.length) {
+      console.log("hello");
+      console.log("timer", timer);
       clearInterval(timer);
 
       // //construct formContainer
