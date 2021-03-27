@@ -66,6 +66,8 @@
   width: 25vw;
   height: 400px;
   text-align: left;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .form-container h1 {

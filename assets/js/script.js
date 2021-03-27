@@ -55,7 +55,7 @@ const timerElement = document.getElementById("timer");
 const secondsRemaining = document.querySelector("#seconds-remaining");
 const questionsContainerDiv = document.createElement("div");
 const quizContainer = document.getElementById("quiz-container");
-let timerValue = 5;
+let timerValue = 60;
 
 let index = 0;
 
@@ -94,6 +94,7 @@ const verifyChoice = (event) => {
       renderQuestion();
     } else {
       alert("Incorrect - Try Again");
+      timerValue -= 5;
     }
   }
 };
@@ -157,17 +158,21 @@ const formContainerDiv = () => {
   formContainer.appendChild(submitButton);
   bodyElement.appendChild(formContainer);
 
-  submitButton.addEventListener("click", function (event) {
-    event.preventDefault();
+  // submit to highscores
 
-    if (inputInitialsDiv.value === "") {
-      alert("Please enter your initials!");
-      return;
-    }
+  submitButton.addEventListener("click"),
+    //submit High scores to local storage
+    function (event) {
+      event.preventDefault();
 
-    saveScore(inputInitialsDiv.value, secondsRemaining);
-    window.location = "highscores.html";
-  });
+      if (inputInitialsDiv.value === "") {
+        alert("Please enter your initials!");
+        return;
+      }
+
+      saveScore(inputInitialsDiv.value, secondsRemaining);
+      window.location = "highscores.html";
+    };
 };
 
 //Timer
@@ -194,8 +199,6 @@ const startTimer = () => {
 
   const timer = setInterval(timerTick, 1000);
 };
-
-//submit High scores to local storage
 
 // //Removes start quiz
 const startQuiz = () => {
