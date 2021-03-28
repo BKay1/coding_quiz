@@ -1,37 +1,47 @@
+//declare buttons
 const goBackBtn = document.getElementById("go-back-btn");
-const clearBtn = document.getElementById("clear-highscores-btn");
+const clearHighScoresBtn = document.getElementById("clear-highscores-btn");
 
+//to revert to start quiz on click
 const goBack = () => {
   location.href = "/coding_quiz/index.html";
 };
 
+//clears highscores
 const clearHighScores = () => {
   localStorage.clear();
   onLoad;
 };
 
-const getFromLS = () => {
-  const highScores = localStorage.getItem("highScores");
-  if (highScores) {
-    return highScores;
-  } else {
-    return [];
-  }
-};
+//show high scores
+const i = 0;
+function showHighScores() {
+  const savedHighScores = localStorage.getItem("highScores");
 
-const renderHighScoresTable = (highscores) => {
-  if (highScores.Length === 0) {
-    console.log("empty");
-  } else {
-    console.log("create table");
+  // check if there is any in local storage
+  if (savedHighScores === null) {
+    return;
   }
-};
+  console.log(savedHighScores);
 
+  const storedHighScores = JSON.parse(savedHighScores);
+
+  for (; i < storedHighScores.length; i++) {
+    const highScoresContainer = document.querySelector("highscores-container");
+    const eachNewHighScores = document.createElement("p");
+    highScoresContainer.innerHTML =
+      eachNewHighScores[i].initials + ": " + storedHighScores[i].score;
+    highScoresContainer.appendChild(eachNewHighScores);
+  }
+}
+
+//on load show highscores
 const onLoad = () => {
-  const highScores = getFromLS();
-  renderHighScoresTable(highScores);
+  const highScores = showHighScores();
+  showHighScores(highScores);
 };
 
+//event listeners
 goBackBtn.addEventListener("click", goBack);
-clearBtn.addEventListener("click", clear);
+clearHighScoresBtn.addEventListener("click", clearHighScores);
 window.addEventListener("load", onLoad);

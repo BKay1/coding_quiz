@@ -52,7 +52,6 @@ const startButtonElement = document.getElementById("start-btn");
 const bodyElement = document.body;
 const quizIntroElement = document.getElementById("quiz-intro");
 const timerElement = document.getElementById("timer");
-const secondsRemaining = document.querySelector("#seconds-remaining");
 const questionsContainerDiv = document.createElement("div");
 const quizContainer = document.getElementById("quiz-container");
 let timerValue = 60;
@@ -139,7 +138,7 @@ const formContainerDiv = () => {
   h1.textContent = "All Done!";
 
   const finalScoreDiv = document.createElement("div");
-  finalScoreDiv.textContent = "Your final score is " + secondsRemaining + ".";
+  finalScoreDiv.textContent = "Your final score is " + timerValue + ".";
 
   const enterInitialsDiv = document.createElement("label");
   enterInitialsDiv.textContent = "Enter your Initials: ";
@@ -157,8 +156,6 @@ const formContainerDiv = () => {
   formContainer.appendChild(inputInitialsDiv);
   formContainer.appendChild(submitButton);
   bodyElement.appendChild(formContainer);
-
-  // submit to highscores
 
   //Create saveScore function
 
@@ -205,21 +202,19 @@ const startTimer = () => {
     timerValue -= 1;
 
     if (timerValue < 0 || index === questions.length) {
-      console.log("hello");
-      console.log("timer", timer);
       clearInterval(timer);
 
       // //construct formContainer
       const formContainer = formContainerDiv();
 
-      //remove questionsContainer
-      // const questionsContainer = document.getElementById("questions-container");
-      // bodyElement.removeChild(questionsContainer);
-
       //append formContainer to body
       bodyElement.appendChild(formContainer);
     }
   };
+  if (timerValue === 0) {
+    alert("Game Over!");
+    return;
+  }
 
   const timer = setInterval(timerTick, 1000);
 };
