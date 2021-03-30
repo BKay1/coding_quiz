@@ -201,20 +201,18 @@ const startTimer = () => {
     timerElement.textContent = timerValue;
     timerValue -= 1;
 
-    if (timerValue < 0 || index === questions.length) {
+    if (timerValue <= 0 || index === questions.length) {
       clearInterval(timer);
 
       // //construct formContainer
       const formContainer = formContainerDiv();
 
+      quizContainer.removeChild(document.getElementById("questions-container"));
+
       //append formContainer to body
       bodyElement.appendChild(formContainer);
     }
   };
-  if (timerValue === 0) {
-    alert("Game Over!");
-    return;
-  }
 
   const timer = setInterval(timerTick, 1000);
 };

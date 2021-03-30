@@ -7,15 +7,17 @@
 Main Actions:
 
 1.  Drafted a wireframe outlining the main tasks of building a code, which briefly are:
-    - A basic html frame outlining the basic structure of the code-quiz;
+    - A basic html framework outlining the basic structure of the code-quiz;
     - CSS for basic styling as well as ensuring a responsive application;
     - Javascript to build the various components of the quiz itself, including the questions container and the user input.
     - a separate html and javascript file was created for the highscores part of the app.
 2.  Initially compiled the html together with css to make sure I was happy with the look of the page;
 3.  Then used the html as a template to create the various sections in javascript including the questions and form container;
-4.  Added a timer;
-5.
-6.  The code-quiz was successful in being deployed!!!!!!!AAAAAGGGGGGHHHHHH!!!!
+4.  Added a timer which included a 5 second deduction feature if the user gets a question wrong.
+5.  Upon completion of the quiz if the time runs out the user can add there initials via a form to be added to the highscores output.
+6.  The user is then directed to the highscores page listing recent games as well as an option to go back to the beginning to restart the quiz.
+7.  The highscores are available in local storage and can be cleared on the click of a button.
+8.  The code-quiz was successful in being deployed!
 
 # Screenshots
 

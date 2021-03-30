@@ -1,6 +1,7 @@
 //declare buttons
 const goBackBtn = document.getElementById("go-back-btn");
 const clearHighScoresBtn = document.getElementById("clear-highscores-btn");
+const highScoresContainer = document.getElementById("highscores-container");
 
 //to revert to start quiz on click
 const goBack = () => {
@@ -10,11 +11,10 @@ const goBack = () => {
 //clears highscores
 const clearHighScores = () => {
   localStorage.clear();
-  onLoad;
+  highScoresContainer.innerHTML = "";
 };
 
 //show high scores
-const i = 0;
 function showHighScores() {
   const savedHighScores = localStorage.getItem("highScores");
 
@@ -25,13 +25,15 @@ function showHighScores() {
   console.log(savedHighScores);
 
   const storedHighScores = JSON.parse(savedHighScores);
+  const highScoreList = highScoresContainer.appendChild(
+    document.createElement("ul")
+  );
 
-  for (; i < storedHighScores.length; i++) {
-    const highScoresContainer = document.querySelector("highscores-container");
-    const eachNewHighScores = document.createElement("p");
-    highScoresContainer.innerHTML =
-      eachNewHighScores[i].initials + ": " + storedHighScores[i].score;
-    highScoresContainer.appendChild(eachNewHighScores);
+  for (let i = 0; i < storedHighScores.length; i++) {
+    const eachNewHighScores = document.createElement("li");
+    eachNewHighScores.innerHTML =
+      storedHighScores[i].initials + ": " + storedHighScores[i].score;
+    highScoreList.appendChild(eachNewHighScores);
   }
 }
 
