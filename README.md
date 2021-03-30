@@ -23,9 +23,13 @@ Main Actions:
 
 Please note screen shots of working web app:
 
-Image 1 to show deployed application URL: ![hwimage1]()
+Image 1 to show deployed application URL: ![quiz-start-page](./assets/images/quiz-start-page.png)
 
-Image 2 to show generated password with no errors in console URL: ![hwimage1]()
+Image 2 to show quiz page: ![quiz-page](./assets/images/quiz-page.png)
+
+Image 3 to show user input: ![initials-input](./assets/images/initials-input.png)
+
+Image 4 to show highscores page: ![highscores](./assets/images/highscores.png)
 
 # Link to GitHub Repository:
 
